@@ -1,3 +1,5 @@
 name: SakuraRanks
 main: hiros15.sakuraranks.SakuraRanks
 version: 1.0
+commands:
+  sakuraranks:

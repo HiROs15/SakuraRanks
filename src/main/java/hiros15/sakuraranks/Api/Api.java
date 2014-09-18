@@ -15,9 +15,9 @@ public class Api {
 		UNDIFINED, NORMAL, BETANORMAL, DONOR, MOD, ADMIN, SAKURAMEMBER
 	}
 	
-	RanksConfig ranksconfig = new RanksConfig(plugin);
 	
 	public Ranks getRank(Player player) {
+		RanksConfig ranksconfig = new RanksConfig(plugin);
 		String rank = ranksconfig.getConfig().getString("ranks."+player.getName()+".rank");
 		Ranks returnrank = Ranks.UNDIFINED;
 		switch(rank) {
@@ -37,7 +37,9 @@ public class Api {
 		return returnrank;
 	}
 	
-	public void setRank(Player player, Ranks rank) {
-		
+	public void setRank(Player player, String rank) {
+		RanksConfig ranksconfig = new RanksConfig(plugin);
+		ranksconfig.getConfig().set("rank."+player.getName()+".rank", rank);
+		ranksconfig.saveConfig();
 	}
 }
