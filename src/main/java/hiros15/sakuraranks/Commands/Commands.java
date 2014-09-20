@@ -1,7 +1,6 @@
 package hiros15.sakuraranks.Commands;
 
 import hiros15.sakuraranks.Api.Api;
-import hiros15.sakuraranks.Api.Api.Ranks;
 import hiros15.sakuraranks.Config.RanksConfig;
 import net.md_5.bungee.api.ChatColor;
 
@@ -41,7 +40,7 @@ public class Commands implements CommandExecutor {
 					player.sendMessage(ChatColor.DARK_RED+"Please give a player name and a rank name.");
 					return false;
 				}
-				if(rankapi.getRank(player) == Ranks.ADMIN || rankapi.getRank(player) == Ranks.SAKURAMEMBER) { 
+				if(rankapi.getRank(player) == "admin" || rankapi.getRank(player) == "sakuramember") { 
 				rankapi.setRank(Bukkit.getServer().getPlayer(args[1]), args[2]);
 				player.sendMessage(ChatColor.YELLOW+"You have updated "+args[1]+"'s Sakura Network rank.");
 				return false;
@@ -50,8 +49,8 @@ public class Commands implements CommandExecutor {
 					return false;
 				}
 			}
+			return false;
 		}
-		
 		return false;
 	}
 }
